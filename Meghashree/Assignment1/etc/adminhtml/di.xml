@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
- <preference for="Magento\Customer\Model\Data\Customer" type="Meghashree\Assignment1\Model\Data\Customer"/>
-    <type name="Magento\Customer\Model\Data\Customer">
-        <plugin name="assignment_customer" type="Meghashree\Assignment1\Plugin\Customer"/>
-    </type>
-</config>
