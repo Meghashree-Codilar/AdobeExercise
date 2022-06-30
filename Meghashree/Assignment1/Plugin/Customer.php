@@ -3,7 +3,7 @@
 namespace Meghashree\Assignment1\Plugin;
 
 use Magento\Framework\Stdlib\DateTime\DateTime;
-use Magento\Customer\Model\Data\Customer as Subject;
+use Magento\Customer\Api\Data\CustomerInterface as Subject;
 
 class Customer
 {
@@ -25,7 +25,7 @@ class Customer
      * After Get Method
      *
      * @param Subject $subject
-     * @param $middlename
+     * @param String $middlename
      * @return string
      */
     public function afterGetMiddlename(Subject $subject, $middlename)
@@ -36,6 +36,22 @@ class Customer
         $diff = $current - $birth_date;
         $result=(int)($diff / (60 * 60 * 24));
         return (int)($result/365);
+    }
 
+    /**
+     *
+     * @param \Magento\Customer\Api\Data\CustomerInterface $subject
+     * @param string $middlename
+     * @return array
+     */
+    public function beforeSetMiddlename(\Magento\Customer\Api\Data\CustomerInterface $subject, $middlename)
+    {
+        $dob=$subject->getDob();
+        $current = time();
+        $birth_date = $this->dateTime->gmtTimestamp($dob);
+        $diff = $current - $birth_date;
+        $result=(int)($diff / (60 * 60 * 24));
+        $middlename=(int)($result/365);
+        return [$middlename];
     }
 }
