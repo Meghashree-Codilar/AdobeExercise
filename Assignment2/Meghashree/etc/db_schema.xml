@@ -13,7 +13,6 @@
         <column xsi:type="varchar" name="name" nullable="false" length="255" comment="Name"/>
         <column xsi:type="varchar" name="email" nullable="false" length="255" comment="Email"/>
         <column xsi:type="date" name="date" nullable="false" comment="Date of birth"/>
-        <column xsi:type="varchar" name="address" nullable="false" length="255" comment="Employee address"/>
         <column xsi:type="varchar" name="country" nullable="false" length="32" default="simple" comment="Country"/>
         <column xsi:type="text" name="contact" nullable="false"  comment="Employee Contact"/>
         <column xsi:type="decimal" name="employee salary" nullable="false" scale="2" precision="8" comment="Employee Salary"/>
@@ -21,6 +20,21 @@
         <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated at"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="entity_id"/>
+        </constraint>
+    </table>
+    <table name="meghashree_employee" resource="default" engine="innodb" comment="Employee Information">
+        <column xsi:type="smallint" name="id"  nullable="false" identity="true" comment="id"/>
+        <column xsi:type="int" name="megha_id"  nullable="false" identity="false" comment="Megha Id"/>
+        <column xsi:type="varchar" name="street_address" nullable="false" length="255" comment="Employee address"/>
+        <column xsi:type="varchar" name="city" nullable="false" length="255" comment="City"/>
+        <column xsi:type="varchar" name="area" nullable="false" length="255" comment="area"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created at "/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated at"/>
+        <constraint xsi:type="foreign" referenceId="ASSIGNMENT2_MEGHASHREE_ENTITY_ID"
+                table="Meghashree_Employee" column="megha_id" referenceTable="Assignment2_Meghashree"
+                referenceColumn="entity_id" onDelete="CASCADE"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
         </constraint>
     </table>
 </schema>
