@@ -26,4 +26,10 @@ interface MeghashreeRepositoryInterface
      * @return Model $model
      */
     public function create();
+
+    /**
+     * @return array
+     */
+
+    public function getCollection();
 }
