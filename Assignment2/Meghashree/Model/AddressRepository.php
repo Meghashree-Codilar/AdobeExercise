@@ -2,14 +2,16 @@
 
 namespace Assignment2\Meghashree\Model;
 
-use Assignment2\Meghashree\Api\MeghashreeRepositoryInterface;
-use Assignment2\Meghashree\Model\Meghashree as Model;
-use Assignment2\Meghashree\Model\MeghashreeFactory as ModelFactory;
-use Assignment2\Meghashree\Model\ResourceModel\Meghashree as ResourceModel;
-use Assignment2\Meghashree\Model\ResourceModel\Meghashree\Collection;
-use Assignment2\Meghashree\Model\ResourceModel\Meghashree\CollectionFactory;
+use Assignment2\Meghashree\Api\AddressRepositoryInterface;
+use Assignment2\Meghashree\Api\Data\AddressInterface;
+use Assignment2\Meghashree\Api\Data\AddressExtensionInterface;
+use Assignment2\Meghashree\Model\Address as Model;
+use Assignment2\Meghashree\Model\AddressFactory as ModelFactory;
+use Assignment2\Meghashree\Model\ResourceModel\Address as ResourceModel;
+use Assignment2\Meghashree\Model\ResourceModel\Address\Collection;
+use Assignment2\Meghashree\Model\ResourceModel\Address\CollectionFactory;
 
-class MeghashreeRepository implements MeghashreeRepositoryInterface
+class AddressRepository implements AddressRepositoryInterface
 {
     /**
      * @var ModelFactory
@@ -73,14 +75,9 @@ class MeghashreeRepository implements MeghashreeRepositoryInterface
         return $this->modelFactory->create();
     }
 
-    /**
-     * Collection
-     *
-     * @return array
-     */
-    public function getCollection()
+    public function setAddressId(AddressInterface $address)
     {
-        $collection= $this->collectionFactory->create();
-        return $collection->getData();
+        $dataAttributes = $address->getDataAttributes();
+        $dataAttributes = $dataAttributes ? $dataAttributes : $this->dataFactory->create();
     }
 }
