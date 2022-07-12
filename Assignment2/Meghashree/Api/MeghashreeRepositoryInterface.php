@@ -28,6 +28,8 @@ interface MeghashreeRepositoryInterface
     public function create();
 
     /**
+     * Function getCollection
+     *
      * @return array
      */
 
