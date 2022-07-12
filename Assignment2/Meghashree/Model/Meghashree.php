@@ -10,8 +10,6 @@ use Assignment2\Meghashree\Api\Data\DataInterface;
 use Magento\Framework\Model\AbstractExtensibleModel;
 use Magento\Framework\Model\AbstractModel;
 use Assignment2\Meghashree\Model\ResourceModel\Meghashree as MeghashreeResourceModel;
-use Magento\Tests\NamingConvention\true\string;
-use tests\verification\Tests\ExecuteJsTest;
 
 /**
  * Class Meghashree extends AbstractModel
