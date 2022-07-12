@@ -1,4 +1,8 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Assignment2\Meghashree\Api\MeghashreeRepositoryInterface" type="Assignment2\Meghashree\Model\MeghashreeRepository"/>
+    <preference for="Assignment2\Meghashree\Api\AddressRepositoryInterface" type="Assignment2\Meghashree\Model\AddressRepository"/>
+    <type name="Assignment2\Meghashree\Api\Data\AddressInterface">
+        <plugin name="AddressExtensionAttributeOperations" type="Assignment2\Meghashree\Plugin\AddressAttribute"/>
+    </type>
 </config>
