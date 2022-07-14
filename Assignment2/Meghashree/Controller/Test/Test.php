@@ -45,8 +45,12 @@ class Test extends Action
     public function execute()
     {
         $result=$this->jsonFactory->create();
-        $data = $this->meghashreeRepositoryInterface->getCollection();
-       // $data1 = $this->meghashreeRepositoryInterface->getDataBYId('2');
+        $data = $this->meghashreeRepositoryInterface->getDataById(1);
+        echo "<pre>";
+        var_dump($data->getData());die();
+//      $data1 = $this->meghashreeRepositoryInterface->getDataBYId('2');
+//      $data2 = $this->meghashreeRepositoryInterface->getDataBYId('1');
+
         return $result->setData(['success'=>true,'data'=>$data]);
     }
 }

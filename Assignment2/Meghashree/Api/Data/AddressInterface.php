@@ -18,31 +18,28 @@ interface AddressInterface extends ExtensibleDataInterface
     /**#@+
      * Constants defined for keys of the data array. Identical to the name of the getter in snake case
      */
-    const ID = 'id';
-    const MEGHA_ID='megha_id';
-    const STREET_ADDRESS='street_address';
-    const CITY='city';
-    const AREA='area';
-    const CREATED_AT = 'created_at';
-    const UPDATED_AT = 'updated_at';
-
-
-    /**#@-*/
+    public const ID = 'id';
+    public const MEGHA_ID='megha_id';
+    public const STREET_ADDRESS='street_address';
+    public const CITY='city';
+    public const AREA='area';
+    public const CREATED_AT = 'created_at';
+    public const UPDATED_AT = 'updated_at';
 
     /**
-     * Get employee id
+     * Get megha id
      *
-     * @return int|null
+     * @return int
      */
     public function getId();
 
     /**
-     * Set employee id
+     * Set megha id
      *
      * @param int $id
-     * @return $int
+     * @return \Assignment2\Meghashree\Api\Data\AddressInterface
      */
-    public function setId($id);
+    public function setId($id):AddressInterface;
 
     /**
      * @return int
@@ -52,9 +49,10 @@ interface AddressInterface extends ExtensibleDataInterface
     /**
      * Set megha_id
      *
-     * @param $megha_id
+     * @param int $meghaId
+     * @return \Assignment2\Meghashree\Api\Data\AddressInterface
      */
-    public function setMeghaId($megha_id);
+    public function setMeghaId($meghaId):AddressInterface;
 
     /**
      * @return string
@@ -62,9 +60,10 @@ interface AddressInterface extends ExtensibleDataInterface
     public function getStreetAddress();
 
     /**
-     * @param $street_address
+     * @param string $streetaddress
+     * @return \Assignment2\Meghashree\Api\Data\AddressInterface
      */
-    public function setStreetAddress($street_address);
+    public function setStreetAddress($streetaddress):AddressInterface;
 
     /**
      * @return string
@@ -72,9 +71,10 @@ interface AddressInterface extends ExtensibleDataInterface
     public function getCity();
 
     /**
-     * @param $city
+     * @param string $city
+     * @return \Assignment2\Meghashree\Api\Data\AddressInterface
      */
-    public function setCity($city);
+    public function setCity($city):AddressInterface;
 
     /**
      * @return string
@@ -82,15 +82,15 @@ interface AddressInterface extends ExtensibleDataInterface
     public function getArea();
 
     /**
-     * @param $area
-     * @return mixed
+     * @param string $area
+     * @return \Assignment2\Meghashree\Api\Data\AddressInterface
      */
-    public function setArea($area);
+    public function setArea($area):AddressInterface;
 
     /**
      * Get created at time
      *
-     * @return string|null
+     * @return string
      */
     public function getCreatedAt();
 
@@ -98,14 +98,14 @@ interface AddressInterface extends ExtensibleDataInterface
      * Set created at time
      *
      * @param string $createdAt
-     * @return $this
+     * @return \Assignment2\Meghashree\Api\Data\AddressInterface
      */
-    public function setCreatedAt($createdAt);
+    public function setCreatedAt($createdAt):AddressInterface;
 
     /**
      * Get updated at time
      *
-     * @return string|null
+     * @return string
      */
     public function getUpdatedAt();
 
@@ -113,21 +113,7 @@ interface AddressInterface extends ExtensibleDataInterface
      * Set updated at time
      *
      * @param string $updatedAt
-     * @return $this
+     * @return \Assignment2\Meghashree\Api\Data\AddressInterface
      */
-    public function setUpdatedAt($updatedAt);
-    /**
-     * Retrieve existing extension attributes object or create a new one.
-     *
-     * @return \Assignment2\Meghashree\Api\Data\AddressExtensionInterface|null
-     */
-    public function getExtensionAttributes();
-
-    /**
-     * Set an extension attributes object.
-     *
-     * @param \Assignment2\Meghashree\Api\Data\AddressExtensionInterface $dataAttributes
-     * @return $this
-     */
-    public function setExtensionAttributes(\Assignment2\Meghashree\Api\Data\AddressExtensionInterface $dataAttributes);
+    public function setUpdatedAt($updatedAt):AddressInterface;
 }

@@ -41,37 +41,39 @@ class MeghashreeRepository implements MeghashreeRepositoryInterface
     /**
      * GetById
      *
-     * @param Id $id
-     * @return Model $model
+     * @param int $entityId
+     * @return \Assignment2\Meghashree\Api\Data\DataInterface
      */
-    public function getDataBYId($id)
+    public function getDataById($entityId)
     {
-        return $this->load($id);
+        $model = $this->modelFactory->create();
+        $this->resourceModel->load($model, $entityId);
+        return $model;
     }
 
-    /**
-     * Load value
-     *
-     * @param Value $value
-     * @return Model $model
-     */
-    public function load($value)
-    {
-        $model = $this->create();
-        $this->resourceModel->load($model, $value);
-        return $model->getData();
-    }
+//    /**
+//     * Load value
+//     *
+//     * @param Value $value
+//     * @return Model $model
+//     */
+//    public function load($value)
+//    {
+//        $model = $this->create();
+//        $this->resourceModel->load($model, $value);
+//        return $model->getData();
+//    }
 
-    /**
-     * Create function
-     *
-     * @return Model $model
-     */
+//    /**
+//     * Create function
+//     *
+//     * @return Model $model
+//     */
 
-    public function create()
-    {
-        return $this->modelFactory->create();
-    }
+//    public function create()
+//    {
+//        return $this->modelFactory->create();
+//    }
 
     /**
      * Collection

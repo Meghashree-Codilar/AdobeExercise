@@ -31,8 +31,6 @@ class Collection extends AbstractCollection
                 'main_table.entity_id = meghashree_employee.megha_id',
                 ['*']
             );
-//        var_dump($this->getMainTable());
-//        die();
         return $this;
     }
 }

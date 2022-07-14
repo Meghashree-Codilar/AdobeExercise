@@ -1,12 +1,9 @@
 <config>
-    <extension_attributes for="Assignment2\Meghashree\Api\MeghashreeRepositoryInterface">
-        <attribute code="megha_id" type="int">
+    <extension_attributes for="Assignment2\Meghashree\Api\Data\DataInterface">
+        <attribute code="megha_address" type="Assignment2\Meghashree\Api\Data\AddressInterface[]">
             <resources>
-                <resource ref="permission"/>
+                <resource ref="anonymous"/>
             </resources>
-            <join reference_table="Assignment2_Meghashree" reference_field="entity_id" join_on_field="megha_id">
-                <field>street_address</field>
-            </join>
         </attribute>
     </extension_attributes>
 </config>

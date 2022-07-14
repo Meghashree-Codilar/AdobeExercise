@@ -36,14 +36,33 @@ class Meghashree extends AbstractExtensibleModel implements DataInterface
 
     /**
      * @param int $entityId
-     * @return FormInterface
+     * @return \Assignment2\Meghashree\Api\Data\DataInterface
      */
     public function setEntityId($entityId): DataInterface
     {
         return $this->setData(self::ENTITY_ID, $entityId);
     }
+    /**
+     * @return mixed|null
+     */
+    public function getIsActive()
+    {
+        return $this->getData(self::IS_ACTIVE);
+    }
 
-    public function getDob():date
+    /**
+     * @param bool $value
+     * @return \Assignment2\Meghashree\Api\Data\DataInterface
+     */
+    public function setIsActive(bool $value): DataInterface
+    {
+        return $this->setData(self::IS_ACTIVE, $value);
+    }
+
+    /**
+     * @return string
+     */
+    public function getDate()
     {
         return $this->getData(self::DOB);
     }
@@ -52,14 +71,12 @@ class Meghashree extends AbstractExtensibleModel implements DataInterface
      * Set date of birth
      *
      * @param string $dob
-     * @return $this
+     * @return \Assignment2\Meghashree\Api\Data\DataInterface
      */
-    public function setDob($dob): DataInterface
+    public function setDate($dob): DataInterface
     {
         return $this->setData(self::DOB, $dob);
     }
-
-
     /**
      * Get email address
      *
@@ -69,20 +86,16 @@ class Meghashree extends AbstractExtensibleModel implements DataInterface
     {
         return $this->getData(self::EMAIL);
     }
-
-
     /**
      * Set email address
      *
      * @param string $email
-     * @return $this
+     * @return \Assignment2\Meghashree\Api\Data\DataInterface
      */
     public function setEmail($email):DataInterface
     {
         return $this->setData(self::EMAIL, $email);
     }
-
-
     /**
      * Get name
      *
@@ -97,7 +110,7 @@ class Meghashree extends AbstractExtensibleModel implements DataInterface
      * Set name
      *
      * @param $name
-     * @return string
+     * @return \Assignment2\Meghashree\Api\Data\DataInterface
      */
     public function setName($name):DataInterface
     {
@@ -118,20 +131,19 @@ class Meghashree extends AbstractExtensibleModel implements DataInterface
     /**
      * Set country
      * @param $country
-     * @return mixed
+     * @return \Assignment2\Meghashree\Api\Data\DataInterface
      */
     public function setCountry($country):DataInterface
     {
         return $this->setData(self::COUNTRY, $country);
     }
 
-
     /**
      * Get contact
      *
      * @return string
      */
-    public function getContact():text
+    public function getContact()
     {
         return $this->getData(self::CONTACT);
     }
@@ -139,7 +151,7 @@ class Meghashree extends AbstractExtensibleModel implements DataInterface
      * Set contact
      *
      * @param $contact
-     * @return string
+     * @return \Assignment2\Meghashree\Api\Data\DataInterface
      */
     public function setContact($contact):DataInterface
     {
@@ -147,44 +159,52 @@ class Meghashree extends AbstractExtensibleModel implements DataInterface
     }
     /**
      * Get salary
-     * @return decimal
+     * @return float
      */
-    public function getEmployeeSalary():decimal
+    public function getEmployeeSalary()
     {
         return $this->getData(self::EMPLOYEESALARY);
     }
 
     /**
      * @param $employeesalary
-     * @return decimal
+     * @return \Assignment2\Meghashree\Api\Data\DataInterface
      */
     public function setEmployeeSalary($employeesalary):DataInterface
     {
         return $this->setData(self::EMPLOYEESALARY, $employeesalary);
     }
-
+    /**
+     * @return DataInterface
+     */
     public function getCreatedAt(): string
     {
         return $this->getData(self::CREATED_AT);
     }
 
     /**
-     * @param string $createdAt
+     * @param $date
+     * @return \Assignment2\Meghashree\Api\Data\DataInterface
+     */
+    public function setCreatedAt($date): DataInterface
+    {
+        return $this->setData(self::CREATED_AT, $date);
+    }
+    /**
      * @return DataInterface
      */
-    public function setCreatedAt(string $createdAt): DataInterface
-    {
-        return $this->setData(self::CREATED_AT, $createdAt);
-    }
-
     public function getUpdatedAt(): string
     {
         return $this->getData(self::UPDATED_AT);
     }
 
-    public function setUpdatedAt(string $updatedAt): FormInterface
+    /**
+     * @param $date
+     * @return \Assignment2\Meghashree\Api\Data\DataInterface
+     */
+    public function setUpdatedAt($date): DataInterface
     {
-        return $this->setData(self::UPDATED_AT, $updatedAt);
+        return $this->setData(self::UPDATED_AT, $date);
     }
 
 /**
@@ -196,9 +216,11 @@ class Meghashree extends AbstractExtensibleModel implements DataInterface
     }
 
 /**
- * @inerhitDoc
+ * @inheritDoc
+ *
+ * @return $this
  */
-    public function setExtensionAttributes(Assignment2\Meghashree\Api\Data\DataExtensionInterface $dataAttributes)
+    public function setExtensionAttributes(\Assignment2\Meghashree\Api\Data\DataExtensionInterface $dataAttributes)
     {
         return $this->_setExtensionAttributes($dataAttributes);
     }

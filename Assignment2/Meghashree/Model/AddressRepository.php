@@ -3,8 +3,6 @@
 namespace Assignment2\Meghashree\Model;
 
 use Assignment2\Meghashree\Api\AddressRepositoryInterface;
-use Assignment2\Meghashree\Api\Data\AddressInterface;
-use Assignment2\Meghashree\Api\Data\AddressExtensionInterface;
 use Assignment2\Meghashree\Model\Address as Model;
 use Assignment2\Meghashree\Model\AddressFactory as ModelFactory;
 use Assignment2\Meghashree\Model\ResourceModel\Address as ResourceModel;
@@ -44,9 +42,9 @@ class AddressRepository implements AddressRepositoryInterface
      * GetById
      *
      * @param Id $id
-     * @return Model $model
+     * @return int
      */
-    public function getDataBYId($id)
+    public function getId($id)
     {
         return $this->load($id);
     }
@@ -59,25 +57,26 @@ class AddressRepository implements AddressRepositoryInterface
      */
     public function load($value)
     {
-        $model = $this->create();
+        $model = $this->modelFactory->create();
         $this->resourceModel->load($model, $value);
-        return $model->getData();
+        return $model;
+    }
+    public function getByMeghaId($meghaId)
+    {
+        $object=$this->modelFactory->create();
+        $collection=$object->getCollection();
+        $collection->addFieldToFilter('megha_id', $meghaId);
+        return $collection->getData();
     }
 
-    /**
-     * Create function
-     *
-     * @return Model $model
-     */
 
-    public function create()
-    {
-        return $this->modelFactory->create();
-    }
 
-    public function setAddressId(AddressInterface $address)
+//    public function create()
+//    {
+//        return $this->modelFactory->create();
+//    }
+    public function getCollection()
     {
-        $dataAttributes = $address->getDataAttributes();
-        $dataAttributes = $dataAttributes ? $dataAttributes : $this->dataFactory->create();
+        return $this->collectionFactory->create();
     }
 }

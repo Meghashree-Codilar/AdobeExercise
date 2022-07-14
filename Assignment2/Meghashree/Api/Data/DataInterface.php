@@ -18,36 +18,44 @@ interface DataInterface extends ExtensibleDataInterface
     /**#@+
      * Constants defined for keys of the data array. Identical to the name of the getter in snake case
      */
-    const ENTITY_ID = 'entity_id';
-    const CREATED_AT = 'created_at';
-    const UPDATED_AT = 'updated_at';
-    const DOB = 'dob';
-    const EMAIL = 'email';
-    const NAME = 'name';
-    const COUNTRY='country';
-    const CONTACT='contact';
-    const SALARY='employee salary';
-
-    /**#@-*/
-
+    public const ENTITY_ID = 'entity_id';
+    public const IS_ACTIVE  = 'is_active';
+    public const CREATED_AT = 'created_at';
+    public const UPDATED_AT = 'updated_at';
+    public const DOB = 'date';
+    public const EMAIL = 'email';
+    public const NAME = 'name';
+    public const COUNTRY='country';
+    public const CONTACT='contact';
+    public const EMPLOYEESALARY='employee salary';
     /**
      * Get employee id
      *
-     * @return int|null
+     * @return int
      */
-    public function getEntityId();
+    public function getEntityId():int;
 
     /**
      * Set employee id
      *
-     * @param int $id
-     * @return $this
+     * @param int $entityId
+     * @return DataInterface
      */
-    public function setEntityId($entity_id);
+    public function setEntityId($entityId):DataInterface;
+    /**
+     * @return bool
+     */
+    public function getIsActive();
+
+    /**
+     * @param bool $value
+     * @return DataInterface
+     */
+    public function setIsActive(bool $value):DataInterface;
     /**
      * Get created at time
      *
-     * @return string|null
+     * @return string
      */
     public function getCreatedAt();
 
@@ -55,38 +63,38 @@ interface DataInterface extends ExtensibleDataInterface
      * Set created at time
      *
      * @param string $createdAt
-     * @return $this
+     * @return DataInterface
      */
-    public function setCreatedAt($createdAt);
+    public function setCreatedAt($createdAt):DataInterface;
 
     /**
      * Get updated at time
      *
-     * @return string|null
+     * @return string
      */
     public function getUpdatedAt();
 
     /**
      * Set updated at time
      *
-     * @param string $updatedAt
-     * @return $this
+     * @param  string $updatedAt
+     * @return DataInterface
      */
-    public function setUpdatedAt($updatedAt);
-
-
+    public function setUpdatedAt($updatedAt):DataInterface;
     /**
      * Get date of birth
+     *
+     * @return string
      */
-    public function getDob();
+    public function getDate();
 
     /**
      * Set date of birth
      *
      * @param string $dob
-     * @return $date
+     * @return DataInterface
      */
-    public function setDob($dob);
+    public function setDate($dob):DataInterface;
 
     /**
      * Get email address
@@ -99,9 +107,9 @@ interface DataInterface extends ExtensibleDataInterface
      * Set email address
      *
      * @param string $email
-     * @return $this
+     * @return DataInterface
      */
-    public function setEmail($email);
+    public function setEmail($email):DataInterface;
 
     /**
      * Get name
@@ -113,10 +121,10 @@ interface DataInterface extends ExtensibleDataInterface
     /**
      * Set name
      *
-     * @param $name
-     * @return string
+     * @param string $name
+     * @return DataInterface
      */
-    public function setName($name);
+    public function setName($name):DataInterface;
 
     /**
      * Get country
@@ -127,41 +135,42 @@ interface DataInterface extends ExtensibleDataInterface
 
     /**
      * Set country
-     * @param $country
-     * @return mixed
+     * @param string $country
+     * @return DataInterface
      */
-    public function setCountry($country);
+    public function setCountry($country):DataInterface;
 
     /**
      * Get contact
      *
-     * @return text
+     * @return string
      */
     public function getContact();
 
     /**
      * Set contact
      *
-     * @param $contact
-     * @return text
+     * @param string $contact
+     * @return DataInterface
      */
-    public function setContact($contact);
+    public function setContact($contact):DataInterface;
 
     /**
      * Get salary
-     * @return decimal
+     * @return float
      */
     public function getEmployeeSalary();
 
     /**
-     * @param $employeesalary
-     * @return decimal
+     * @param float $employeesalary
+     * @return DataInterface
      */
-    public function setEmployeeSalary($employeesalary);
+    public function setEmployeeSalary($employeesalary):DataInterface;
+
     /**
      * Retrieve existing extension attributes object or create a new one.
      *
-     * @return \Assignment2\Meghashree\Api\Data\DataExtensionInterface|null
+     * @return \Assignment2\Meghashree\Api\Data\DataExtensionInterface
      */
     public function getExtensionAttributes();
 

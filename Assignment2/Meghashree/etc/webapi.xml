@@ -1,18 +1,6 @@
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../app/code/Magento/Webapi/etc/webapi.xsd">
-    <route method="GET" url="/V1/meghashree/getdatabyid/">
-        <service class="Assignment2\Meghashree\Api\Data\AddressRepositoryInterface" method="getDataById"/>
-        <resources>
-            <resource ref="anonymous"/>
-        </resources>
-    </route>
-    <route method="POST" url="/V1/meghashree/load/">
-        <service class="Assignment2\Meghashree\Api\Data\AddressRepositoryInterface" method="load"/>
-        <resources>
-            <resource ref="anonymous"/>
-        </resources>
-    </route>
-    <route method="POST" url="/V1/meghashree/getpost/">
-        <service class="Assignment2\Meghashree\Api\Data\AddressRepositoryInterface" method="getPost"/>
+    <route method="GET" url="/V1/assignment2/meghashree/:entityId">
+        <service class="Assignment2\Meghashree\Api\MeghashreeRepositoryInterface" method="getDataById"/>
         <resources>
             <resource ref="anonymous"/>
         </resources>

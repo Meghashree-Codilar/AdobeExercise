@@ -29,7 +29,7 @@ class Address extends AbstractExtensibleModel implements AddressInterface
      * @inerhitDoc
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->getData(self::ID);
     }
@@ -46,66 +46,107 @@ class Address extends AbstractExtensibleModel implements AddressInterface
      * @inerhitDoc
      * @return int
      */
-    public function getMeghaId(): int
+    public function getMeghaId()
     {
-        return $this->getData(self::MEGHAID);
+        return $this->getData(self::MEGHA_ID);
     }
 
     /**
      * @param int $id
      * @return AddressInterface
      */
-    public function setMeghaId($meghaid): AddressInterface
+    public function setMeghaId($meghaId): AddressInterface
     {
-        return $this->setData(self::MEGHAID, $meghaid);
+        return $this->setData(self::MEGHA_ID, $meghaId);
     }
 
+    /**
+     * @return string
+     */
 
-    public function getStreetAddress(): string
+    public function getStreetAddress()
     {
         return $this->getData(self::STREET_ADDRESS);
     }
 
-    public function setStreetAddress(string $street_address): AddressInterface
+    /**
+     * @param string $streetaddress
+     * @return AddressInterface
+     */
+
+    public function setStreetAddress($streetaddress): AddressInterface
     {
-        return $this->setData(self::STREET_ADDRESS, $street_address);
+        return $this->setData(self::STREET_ADDRESS, $streetaddress);
     }
-    public function getArea(): string
+
+    /**
+     * @return string
+     */
+    public function getArea()
     {
         return $this->getData(self::AREA);
     }
 
-    public function setArea(string $area): AddressInterface
+    /**
+     * @param $area
+     * @return AddressInterface
+     */
+
+    public function setArea($area): AddressInterface
     {
         return $this->setData(self::AREA, $area);
     }
-    public function getCity(): string
+
+    /**
+     * @return string
+     */
+    public function getCity()
     {
         return $this->getData(self::CITY);
     }
 
-    public function setCity(string $city): AddressInterface
+    /**
+     * @param $city
+     * @return AddressInterface
+     */
+
+    public function setCity($city): AddressInterface
     {
         return $this->setData(self::CITY, $city);
     }
 
+    /**
+     * @return string
+     */
 
-    public function getCreatedAt(): string
+    public function getCreatedAt()
     {
         return $this->getData(self::CREATED_AT);
     }
 
-    public function setCreatedAt(string $createdAt): AddressInterface
+    /**
+     * @param string $createdAt
+     * @return AddressInterface
+     */
+
+    public function setCreatedAt($createdAt): AddressInterface
     {
         return $this->setData(self::CREATED_AT, $createdAt);
     }
 
-    public function getUpdatedAt(): string
+    /**
+     * @return string
+     */
+    public function getUpdatedAt()
     {
         return $this->getData(self::UPDATED_AT);
     }
 
-    public function setUpdatedAt(string $updatedAt): AddressInterface
+    /**
+     * @param string $updatedAt
+     * @return AddressInterface
+     */
+    public function setUpdatedAt($updatedAt): AddressInterface
     {
         return $this->setData(self::UPDATED_AT, $updatedAt);
     }

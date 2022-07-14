@@ -2,24 +2,32 @@
 
 namespace Assignment2\Meghashree\Api;
 
-
 interface AddressRepositoryInterface
 {
     /**
-     * @return string
+     * @param int $id
+     * @return \Assignment2\Meghashree\Api\Data\AddressInterface
      */
-    public function getDataById($id);
+    public function getId($id);
 
     /**
-     * @param value $value
-     * @return bool true on success
+     * @param $meghaId
+     * @return \Assignment2\Meghashree\Api\Data\AddressInterface
      */
-    public function load($value);
+    public function getByMeghaId($meghaId);
 
-    /**
-     * GET for Post api
-     * @param string $data
-     * @return string
-     */
-    public function getPost($data);
+//    /**
+//     * Function getCollection
+//     *
+//     * @return array
+//     */
+//
+//   public function getCollection();
+
+//    /**
+//     * GET for Post api
+//     * @param string $data
+//     * @return string
+//     */
+//    public function getPost($data);
 }
