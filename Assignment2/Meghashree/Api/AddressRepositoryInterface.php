@@ -15,19 +15,4 @@ interface AddressRepositoryInterface
      * @return \Assignment2\Meghashree\Api\Data\AddressInterface
      */
     public function getByMeghaId($meghaId);
-
-//    /**
-//     * Function getCollection
-//     *
-//     * @return array
-//     */
-//
-//   public function getCollection();
-
-//    /**
-//     * GET for Post api
-//     * @param string $data
-//     * @return string
-//     */
-//    public function getPost($data);
 }

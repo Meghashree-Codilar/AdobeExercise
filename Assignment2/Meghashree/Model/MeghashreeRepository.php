@@ -51,30 +51,6 @@ class MeghashreeRepository implements MeghashreeRepositoryInterface
         return $model;
     }
 
-//    /**
-//     * Load value
-//     *
-//     * @param Value $value
-//     * @return Model $model
-//     */
-//    public function load($value)
-//    {
-//        $model = $this->create();
-//        $this->resourceModel->load($model, $value);
-//        return $model->getData();
-//    }
-
-//    /**
-//     * Create function
-//     *
-//     * @return Model $model
-//     */
-
-//    public function create()
-//    {
-//        return $this->modelFactory->create();
-//    }
-
     /**
      * Collection
      *
@@ -83,6 +59,18 @@ class MeghashreeRepository implements MeghashreeRepositoryInterface
     public function getCollection()
     {
         $collection= $this->collectionFactory->create();
+        return $collection->getData();
+    }
+
+    /**
+     * @param $id
+     * @return \Assignment2\Meghashree\Api\Data\DataInterface
+     */
+    public function getId($id)
+    {
+        $model=$this->modelFactory->create();
+        $collection=$model->getCollection();
+        $collection->addFieldToFilter('id', $id);
         return $collection->getData();
     }
 }

@@ -12,20 +12,11 @@ interface MeghashreeRepositoryInterface
      */
     public function getDataById($entityId);
 
-//    /**
-//     * Load value
-//     *
-//     * @param Value $value
-//     * @return Model $model
-//     */
-//    public function load($value);
-//
-//    /**
-//     * Function create
-//     *
-//     * @return Model $model
-//     */
-//    public function create();
+    /**
+     * @param $id
+     * @return \Assignment2\Meghashree\Api\Data\DataInterface
+     */
+    public function getId($id);
 
     /**
      * Function getCollection

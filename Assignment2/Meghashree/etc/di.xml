@@ -8,4 +8,8 @@
         <plugin name="address_attribute"
                 type="Assignment2\Meghashree\Plugin\MeghashreeRepositoryInterface" sortOrder="1" disabled="false"/>
     </type>
+    <type name="Assignment2\Meghashree\Api\AddressRepositoryInterface">
+        <plugin name="megha_attribute"
+                type="Assignment2\Meghashree\Plugin\AddressRepositoryInterface" sortOrder="2" disabled="false"/>
+    </type>
 </config>

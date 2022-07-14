@@ -5,4 +5,11 @@
             <resource ref="anonymous"/>
         </resources>
     </route>
+    <route method="GET" url="/V1/assignment2/meghashreeaddress/:id">
+        <service class="Assignment2\Meghashree\Api\AddressRepositoryInterface" method="getId"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
 </routes>

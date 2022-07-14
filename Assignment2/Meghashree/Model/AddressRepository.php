@@ -41,26 +41,22 @@ class AddressRepository implements AddressRepositoryInterface
     /**
      * GetById
      *
-     * @param Id $id
-     * @return int
+     * @param int $id
+     * @return \Assignment2\Meghashree\Api\Data\AddressInterface
      */
     public function getId($id)
     {
-        return $this->load($id);
-    }
-
-    /**
-     * Load value
-     *
-     * @param Value $value
-     * @return Model $model
-     */
-    public function load($value)
-    {
         $model = $this->modelFactory->create();
-        $this->resourceModel->load($model, $value);
+        $this->resourceModel->load($model, $id);
         return $model;
     }
+
+//    public function load($value)
+//    {
+//        $model = $this->modelFactory->create();
+//        $this->resourceModel->load($model, $value);
+//        return $model;
+//    }
     public function getByMeghaId($meghaId)
     {
         $object=$this->modelFactory->create();

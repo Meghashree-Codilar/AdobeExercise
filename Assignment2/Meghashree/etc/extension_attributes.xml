@@ -6,4 +6,11 @@
             </resources>
         </attribute>
     </extension_attributes>
+    <extension_attributes for="Assignment2\Meghashree\Api\Data\AddressInterface">
+        <attribute code="megha_id" type="Assignment2\Meghashree\Api\Data\DataInterface[]">
+            <resources>
+                <resource ref="anonymous"/>
+            </resources>
+        </attribute>
+    </extension_attributes>
 </config>
