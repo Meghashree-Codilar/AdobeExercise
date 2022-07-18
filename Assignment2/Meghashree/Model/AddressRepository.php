@@ -51,12 +51,6 @@ class AddressRepository implements AddressRepositoryInterface
         return $model;
     }
 
-//    public function load($value)
-//    {
-//        $model = $this->modelFactory->create();
-//        $this->resourceModel->load($model, $value);
-//        return $model;
-//    }
     public function getByMeghaId($meghaId)
     {
         $object=$this->modelFactory->create();
@@ -65,12 +59,6 @@ class AddressRepository implements AddressRepositoryInterface
         return $collection->getData();
     }
 
-
-
-//    public function create()
-//    {
-//        return $this->modelFactory->create();
-//    }
     public function getCollection()
     {
         return $this->collectionFactory->create();

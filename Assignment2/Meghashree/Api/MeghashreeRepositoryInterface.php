@@ -25,4 +25,10 @@ interface MeghashreeRepositoryInterface
      */
 
     public function getCollection();
+
+    /**
+     * @param \Magento\Framework\Api\SearchCriteriaInterface $searchCriteria
+     * @return mixed
+     */
+public function getList(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria);
 }

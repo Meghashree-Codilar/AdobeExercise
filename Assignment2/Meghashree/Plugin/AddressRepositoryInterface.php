@@ -3,6 +3,7 @@ namespace Assignment2\Meghashree\Plugin;
 
 use Assignment2\Meghashree\Model\MeghashreeRepository;
 use Assignment2\Meghashree\Api\Data\DataExtensionFactory;
+use Magento\Framework\Api\SearchCriteriaBuilder;
 
 class AddressRepositoryInterface
 {
@@ -15,20 +16,27 @@ class AddressRepositoryInterface
      * @var DataExtensionFactory
      */
     private DataExtensionFactory $dataExtensionFactory;
+    /**
+     * @var SearchCriteriaBuilder
+     */
+    private SearchCriteriaBuilder $searchCriteriaBuilder;
 
     /**
      * MeghashreeRepositoryInterface constructor.
      *
      * @param MeghashreeRepository $meghashreeRepository
      * @param DataExtensionFactory $dataExtensionFactory
+     * @param  SearchCriteriaBuilder $searchCriteriaBuilder
      */
 
     public function __construct(
         MeghashreeRepository $meghashreeRepository,
-        DataExtensionFactory $dataExtensionFactory
+        DataExtensionFactory $dataExtensionFactory,
+        SearchCriteriaBuilder $searchCriteriaBuilder
     ) {
         $this->meghashreeRepository=$meghashreeRepository;
         $this->dataExtensionFactory=$dataExtensionFactory;
+        $this->searchCriteriaBuilder=$searchCriteriaBuilder;
     }
     /**
      * Adding extension attribute first_name to getById
@@ -40,7 +48,8 @@ class AddressRepositoryInterface
         \Assignment2\Meghashree\Api\AddressRepositoryInterface $subject,
         \Assignment2\Meghashree\Api\Data\AddressInterface $data
     ) {
-        $Data=$this->meghashreeRepository->getId($data->getMeghaId());
+        $filters = $this->searchCriteriaBuilder->addFilter('entity_id', $data->getMeghaId());
+        $Data=$this->meghashreeRepository->getList($filters->create())->getItems();
         $extensionAttributes= $data->getExtensionAttributes();
         $AddressExtension = $extensionAttributes ? $extensionAttributes : $this->dataExtensionFactory->create();
         $AddressExtension->setMeghaId($Data);

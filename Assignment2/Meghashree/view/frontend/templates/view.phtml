@@ -1,0 +1,51 @@
+<?php
+/**
+ * @var Assignment2\Meghashree\Block\View $block
+ */
+$emp = $block->getAllEmployees();
+?>
+<div class="employee-listing">
+    <h1>Employee Details</h1>
+<!--        <input type="submit" value = "Add new employee" name = "Add new employee">-->
+    </form>
+    <?php if (count($emp) > 0): ?>
+    <table>
+        <thead>
+        <tr>
+            <th><?php echo __('Id') ?></th>
+            <th><?php echo __('Name') ?></th>
+            <th><?php echo __('Email') ?></th>
+            <th><?php echo __('Contact') ?></th>
+            <th><?php echo __('Country') ?></th>
+            <th><?php echo __('Date') ?></th>
+            <th><?php echo __('Employee salary') ?></th>
+            <th><?php echo __('CreatedAt') ?></th>
+            <th><?php echo __('UpdatedAt') ?></th>
+            <th><?php echo __('Action') ?></th>
+
+        </tr>
+        <?php foreach ($block->getAllEmployees() as $emp): ?>
+        <tr>
+            <td><?php echo $emp->getId() ?></td>
+            <td><?php echo $emp->getName() ?></td>
+            <td><?php echo $emp->getEmail() ?></td>
+            <td><?php echo $emp->getContact() ?></td>
+            <td><?php echo $emp->getCountry() ?></td>
+            <td><?php echo $emp->getDate() ?></td>
+            <td><?php echo $emp->getEmployeeSalary() ?></td>
+            <td><?php echo $emp->getCreatedAt() ?></td>
+            <td><?php echo $emp->getUpdatedAt() ?></td>
+            <td>
+                        <span>
+                            <button><a href="<?php echo $block->getEditUrl(). 'entity_id/' . $emp->getEntityId()?>">Edit</a></button>
+                        </span>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+        </thead>
+    </table>
+    <?php else: ?>
+        <h3>No Employee available</h3>
+    <?php endif; ?>
+</div>
+

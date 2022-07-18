@@ -1,0 +1,48 @@
+<?php
+/**
+ * @var Assignment2\Meghashree\Block\View $block
+ */
+$data = $block->getUpdateValues();
+
+?>
+<form style="padding: 1rem; margin-top: 1rem; border: 1px solid silver" method="POST" action="<?php echo $block->getAddUrl() ?>" >
+    <h3>Add new Employee</h3>
+    <div>
+        <label>Id</label>
+        <input name="entity_id" type="int" value="<?php echo $data['entity_id']?>" />
+    </div>
+    <div>
+        <label>Name</label>
+        <input name="name" type="text"  id="name" value="<?php echo $data['name']?>" />
+    </div>
+    <div>
+        <label>Email</label>
+        <input name="email" type="text" id="email" value="<?php echo $data['email']?>"/>
+    </div>
+    <div>
+        <label>Contact</label>
+        <input name="contact" type="text" id="contact" value="<?php echo $data['contact']?>"/>
+    </div>
+    <div>
+        <label> Date of birth</label>
+        <input name="date" type="date" id="date" value="<?php echo $data['date']?>"/>
+    </div>
+    <div>
+        <label>Country </label>
+        <input name="country" type="text" id="country" value="<?php echo $data['country']?>"/>
+    </div>
+    <div>
+        <label>Employee Salary</label>
+        <input name="employeesalary" id="employeesalary" value="<?php echo $data['employee salary']?>"></input>
+    </div>
+<!--    <div>-->
+<!--        <label>Created At</label>-->
+<!--        <input name="createdAt" type="text" id="createdAt" value="--><?php //echo $data['createdAt']?><!--"></input>></input>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <label>Updated At</label>-->
+<!--        <input name="updatedAt" type="text" id="updatedAt" value="--><?php //echo $data['updatedAt']?><!--"></input>></input>-->
+<!--    </div>-->
+    <button>Submit</button>
+</form>
+</div>

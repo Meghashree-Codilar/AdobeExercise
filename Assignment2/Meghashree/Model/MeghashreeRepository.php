@@ -8,6 +8,10 @@ use Assignment2\Meghashree\Model\MeghashreeFactory as ModelFactory;
 use Assignment2\Meghashree\Model\ResourceModel\Meghashree as ResourceModel;
 use Assignment2\Meghashree\Model\ResourceModel\Meghashree\Collection;
 use Assignment2\Meghashree\Model\ResourceModel\Meghashree\CollectionFactory;
+use Magento\Framework\Api\SearchCriteriaInterface;
+use Magento\Framework\Api\SearchCriteria;
+use Magento\Framework\Api\SearchCriteria\CollectionProcessor;
+use Assignment2\Meghashree\Api\Data\DataSearchResultInterfaceFactory;
 
 class MeghashreeRepository implements MeghashreeRepositoryInterface
 {
@@ -24,18 +28,32 @@ class MeghashreeRepository implements MeghashreeRepositoryInterface
      */
     private $collectionFactory;
     /**
+     * @var CollectionProcessor
+     */
+    private $collectionProcessor;
+    /**
+     * @var DataSearchResultInterfaceFactory
+     */
+    private $dataSearchResultInterfaceFactory;
+    /**
      * @param ModelFactory $modelFactory
      * @param ResourceModel $resourceModel
      * @param CollectionFactory $collectionFactory
+     * @param CollectionProcessor $collectionProcessor
+     * @param DataSearchResultInterfaceFactory $dataSearchResultInterfaceFactory
      */
     public function __construct(
         ModelFactory $modelFactory,
         ResourceModel $resourceModel,
-        CollectionFactory $collectionFactory
+        CollectionFactory $collectionFactory,
+        CollectionProcessor $collectionProcessor,
+        DataSearchResultInterfaceFactory $dataSearchResultInterfaceFactory
     ) {
         $this->modelFactory = $modelFactory;
         $this->resourceModel = $resourceModel;
         $this->collectionFactory=$collectionFactory;
+        $this->collectionProcessor=$collectionProcessor;
+        $this->dataSearchResultInterfaceFactory=$dataSearchResultInterfaceFactory;
     }
 
     /**
@@ -72,5 +90,20 @@ class MeghashreeRepository implements MeghashreeRepositoryInterface
         $collection=$model->getCollection();
         $collection->addFieldToFilter('id', $id);
         return $collection->getData();
+    }
+
+    /**
+     * @param SearchCriteriaInterface $searchCriteria
+     * @return mixed
+     */
+    public function getList(SearchCriteriaInterface $searchCriteria)
+    {
+        $collection= $this->collectionFactory->create();
+        $this->collectionProcessor->process($searchCriteria, ($collection));
+        $searchResult=$this->dataSearchResultInterfaceFactory->create();
+        $searchResult->setItems($collection->getItems());
+        $searchResult->setTotalCount($collection->getSize());
+        $searchResult->setSearchCriteria($searchCriteria);
+        return $searchResult;
     }
 }

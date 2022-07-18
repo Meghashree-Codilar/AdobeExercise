@@ -116,8 +116,6 @@ class Meghashree extends AbstractExtensibleModel implements DataInterface
     {
         return $this->setData(self::NAME, $name);
     }
-
-
     /**
      * Get country
      *
