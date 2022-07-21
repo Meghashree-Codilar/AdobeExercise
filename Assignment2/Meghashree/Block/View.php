@@ -23,6 +23,14 @@ class View extends Template
      */
     private MeghashreeRepositoryInterface $meghashreeRepositoryInterface;
 
+    /**
+     * View constructor.
+     * @param Template\Context $context
+     * @param CollectionFactory $collectionFactory
+     * @param SearchCriteriaBuilder $searchCriteriaBuilder
+     * @param MeghashreeRepositoryInterface $meghashreeRepositoryInterface
+     * @param array $data
+     */
 
     public function __construct(
         Template\Context $context,
@@ -30,8 +38,7 @@ class View extends Template
         SearchCriteriaBuilder $searchCriteriaBuilder,
         MeghashreeRepositoryInterface $meghashreeRepositoryInterface,
         array $data = []
-    )
-    {
+    ) {
         parent::__construct($context, $data);
         $this->collectionFactory = $collectionFactory;
         $this->searchCriteriaBuilder=$searchCriteriaBuilder;
@@ -39,6 +46,8 @@ class View extends Template
     }
 
     /**
+     * GetAll data
+     *
      * @return employee[]
      */
     public function getAllEmployees()
@@ -46,14 +55,32 @@ class View extends Template
         $collection = $this->meghashreeRepositoryInterface->getList($this->searchCriteriaBuilder->create());
         return $collection->getItems();
     }
+
+    /**
+     * Get Add url
+     *
+     * @return string
+     */
     public function getAddUrl()
     {
         return $this->getUrl('meghashree/test/Add');
     }
+
+    /**
+     * Get edit url
+     *
+     * @return string
+     */
     public function getEditUrl()
     {
         return $this->getUrl('meghashree/test/form');
     }
+
+    /**
+     * Get edit data
+     *
+     * @return \Assignment2\Meghashree\Api\Data\DataInterface
+     */
 
     public function getUpdateValues()
     {
@@ -62,4 +89,3 @@ class View extends Template
         return $collection;
     }
 }
-

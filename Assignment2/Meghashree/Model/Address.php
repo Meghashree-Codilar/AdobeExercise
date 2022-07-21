@@ -26,6 +26,8 @@ class Address extends AbstractExtensibleModel implements AddressInterface
     }
 
     /**
+     * GetId
+     *
      * @inerhitDoc
      * @return int
      */
@@ -35,6 +37,8 @@ class Address extends AbstractExtensibleModel implements AddressInterface
     }
 
     /**
+     * SetId
+     *
      * @param int $id
      * @return AddressInterface
      */
@@ -42,8 +46,10 @@ class Address extends AbstractExtensibleModel implements AddressInterface
     {
         return $this->setData(self::ID, $id);
     }
+
     /**
-     * @inerhitDoc
+     * GetMeghaId
+     *
      * @return int
      */
     public function getMeghaId()
@@ -52,7 +58,9 @@ class Address extends AbstractExtensibleModel implements AddressInterface
     }
 
     /**
-     * @param int $id
+     * SetMeghaid
+     *
+     * @param int $meghaId
      * @return AddressInterface
      */
     public function setMeghaId($meghaId): AddressInterface
@@ -61,15 +69,18 @@ class Address extends AbstractExtensibleModel implements AddressInterface
     }
 
     /**
+     * GetAddress
+     *
      * @return string
      */
-
     public function getStreetAddress()
     {
         return $this->getData(self::STREET_ADDRESS);
     }
 
     /**
+     * Setstreetaddress
+     *
      * @param string $streetaddress
      * @return AddressInterface
      */
@@ -80,6 +91,8 @@ class Address extends AbstractExtensibleModel implements AddressInterface
     }
 
     /**
+     * GetArea
+     *
      * @return string
      */
     public function getArea()
@@ -88,16 +101,19 @@ class Address extends AbstractExtensibleModel implements AddressInterface
     }
 
     /**
-     * @param $area
+     * Set area
+     *
+     * @param string $area
      * @return AddressInterface
      */
-
     public function setArea($area): AddressInterface
     {
         return $this->setData(self::AREA, $area);
     }
 
     /**
+     * GetCity
+     *
      * @return string
      */
     public function getCity()
@@ -106,35 +122,40 @@ class Address extends AbstractExtensibleModel implements AddressInterface
     }
 
     /**
-     * @param $city
+     * Set city
+     *
+     * @param string $city
      * @return AddressInterface
      */
-
     public function setCity($city): AddressInterface
     {
         return $this->setData(self::CITY, $city);
     }
 
     /**
+     * Function created At
+     *
      * @return string
      */
-
     public function getCreatedAt()
     {
         return $this->getData(self::CREATED_AT);
     }
 
     /**
+     * Set Created At
+     *
      * @param string $createdAt
      * @return AddressInterface
      */
-
     public function setCreatedAt($createdAt): AddressInterface
     {
         return $this->setData(self::CREATED_AT, $createdAt);
     }
 
     /**
+     * Function Updated At
+     *
      * @return string
      */
     public function getUpdatedAt()
@@ -143,6 +164,8 @@ class Address extends AbstractExtensibleModel implements AddressInterface
     }
 
     /**
+     * Set updated At
+     *
      * @param string $updatedAt
      * @return AddressInterface
      */
@@ -152,15 +175,20 @@ class Address extends AbstractExtensibleModel implements AddressInterface
     }
 
     /**
-     * @inheritDoc
+     * Get extension attributes
      */
+
     public function getExtensionAttributes()
     {
         return $this->_getExtensionAttributes();
     }
 
     /**
+     * Set extension attributes
+     *
      * @inerhitDoc
+     * @param \Assignment2\Meghashree\Api\Data\AddressExtensionInterface $dataAttributes
+     * @return $this
      */
     public function setExtensionAttributes(\Assignment2\Meghashree\Api\Data\AddressExtensionInterface $dataAttributes)
     {

@@ -1,48 +1,40 @@
 <?php
-/**
- * @var Assignment2\Meghashree\Block\View $block
- */
+/** @var Assignment2\Meghashree\Block\View $block*/
+ /** @var Magento\Framework\Escaper $escaper */
+
 $data = $block->getUpdateValues();
 
 ?>
-<form style="padding: 1rem; margin-top: 1rem; border: 1px solid silver" method="POST" action="<?php echo $block->getAddUrl() ?>" >
+<form style="padding: 1rem; margin-top: 1rem; border: 1px solid silver" method="POST" action="<?= $escaper->escapeHtml($block->getAddUrl()) ?>" >
     <h3>Add new Employee</h3>
     <div>
         <label>Id</label>
-        <input name="entity_id" type="int" value="<?php echo $data['entity_id']?>" />
+        <input name="entity_id" type="int" value="<?=$escaper->escapeHtml($data['entity_id'])?>" />
     </div>
     <div>
         <label>Name</label>
-        <input name="name" type="text"  id="name" value="<?php echo $data['name']?>" />
+        <input name="name" type="text"  id="name" value="<?= $escaper->escapeHtml($data['name'])?>" />
     </div>
     <div>
         <label>Email</label>
-        <input name="email" type="text" id="email" value="<?php echo $data['email']?>"/>
+        <input name="email" type="text" id="email" value="<?= $escaper->escapeHtml($data['email'])?>"/>
     </div>
     <div>
         <label>Contact</label>
-        <input name="contact" type="text" id="contact" value="<?php echo $data['contact']?>"/>
+        <input name="contact" type="text" id="contact" value="<?= $escaper->escapeHtml($data['contact'])?>"/>
     </div>
     <div>
         <label> Date of birth</label>
-        <input name="date" type="date" id="date" value="<?php echo $data['date']?>"/>
+        <input name="date" type="date" id="date" value="<?= $escaper->escapeHtml($data['date'])?>"/>
     </div>
     <div>
         <label>Country </label>
-        <input name="country" type="text" id="country" value="<?php echo $data['country']?>"/>
+        <input name="country" type="text" id="country" value="<?= $escaper->escapeHtml($data['country'])?>"/>
     </div>
     <div>
         <label>Employee Salary</label>
-        <input name="employeesalary" id="employeesalary" value="<?php echo $data['employee salary']?>"></input>
+        <input name="employee_salary" id="employeesalary" value="<?= $escaper->escapeHtml($data['employee_salary'])?>"></input>
     </div>
-<!--    <div>-->
-<!--        <label>Created At</label>-->
-<!--        <input name="createdAt" type="text" id="createdAt" value="--><?php //echo $data['createdAt']?><!--"></input>></input>-->
-<!--    </div>-->
-<!--    <div>-->
-<!--        <label>Updated At</label>-->
-<!--        <input name="updatedAt" type="text" id="updatedAt" value="--><?php //echo $data['updatedAt']?><!--"></input>></input>-->
-<!--    </div>-->
     <button>Submit</button>
 </form>
 </div>

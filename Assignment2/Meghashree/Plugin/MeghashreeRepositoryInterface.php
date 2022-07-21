@@ -6,6 +6,7 @@ use Assignment2\Meghashree\Api\Data\DataExtension;
 use Assignment2\Meghashree\Api\Data\DataExtensionFactory;
 use Assignment2\Meghashree\Model\ResourceModel\Meghashree\CollectionFactory;
 use Assignment2\Meghashree\Model\AddressRepository;
+use Magento\Framework\Api\SearchCriteriaBuilder;
 
 class MeghashreeRepositoryInterface
 {
@@ -26,6 +27,10 @@ class MeghashreeRepositoryInterface
      * @var DataExtension
      */
     private DataExtension $dataExtension;
+    /**
+     * @var SearchCriteriaBuilder
+     */
+    private SearchCriteriaBuilder $searchCriteriaBuilder;
 
     /**
      * AddressGet constructor.
@@ -33,21 +38,25 @@ class MeghashreeRepositoryInterface
      * @param AddressRepository $addressRepository
      * @param DataExtensionFactory $dataExtensionFactory
      * @param DataExtension $dataExtension
+     * @param SearchCriteriaBuilder $searchCriteriaBuilder
      */
     public function __construct(
         CollectionFactory $collectionFactory,
         AddressRepository $addressRepository,
         DataExtensionFactory $dataExtensionFactory,
-        DataExtension $dataExtension
+        DataExtension $dataExtension,
+        SearchCriteriaBuilder $searchCriteriaBuilder
     ) {
         $this->collectionFactory = $collectionFactory;
         $this->addressRepository = $addressRepository;
         $this->dataExtensionFactory=$dataExtensionFactory;
         $this->dataExtension = $dataExtension;
+        $this->searchCriteriaBuilder=$searchCriteriaBuilder;
     }
 
     /**
      * Adding extension attribute first_name to getById
+     *
      * @param \Assignment2\Meghashree\Api\MeghashreeRepositoryInterface $subject
      * @param \Assignment2\Meghashree\Api\Data\DataInterface $data
      * @return \Assignment2\Meghashree\Api\Data\DataInterface
@@ -56,10 +65,11 @@ class MeghashreeRepositoryInterface
         \Assignment2\Meghashree\Api\MeghashreeRepositoryInterface $subject,
         \Assignment2\Meghashree\Api\Data\DataInterface $data
     ) {
-        $addressData=$this->addressRepository->getByMeghaId($data->getEntityId());
+        $filters = $this->searchCriteriaBuilder->addFilter('megha_id', $data->getEntityId());
+        $Data=$this->addressRepository->getList($filters->create())->getItems();
         $extensionAttributes= $data->getExtensionAttributes();
         $EmployeeExtension = $extensionAttributes ? $extensionAttributes : $this->dataExtensionFactory->create();
-        $EmployeeExtension->setMeghaAddress($addressData);
+        $EmployeeExtension->setMeghaAddress($Data);
         $data->setExtensionAttributes($EmployeeExtension);
         return $data;
     }

@@ -42,6 +42,8 @@ interface AddressInterface extends ExtensibleDataInterface
     public function setId($id): AddressInterface;
 
     /**
+     * GetMeghaId
+     *
      * @return int
      */
     public function getMeghaId();
@@ -55,33 +57,45 @@ interface AddressInterface extends ExtensibleDataInterface
     public function setMeghaId($meghaId): AddressInterface;
 
     /**
+     * GetStreetAddress
+     *
      * @return string
      */
     public function getStreetAddress();
 
     /**
+     * Set Address
+     *
      * @param string $streetaddress
      * @return \Assignment2\Meghashree\Api\Data\AddressInterface
      */
     public function setStreetAddress($streetaddress): AddressInterface;
 
     /**
+     * GetCity
+     *
      * @return string
      */
     public function getCity();
 
     /**
+     * SetCity
+     *
      * @param string $city
      * @return \Assignment2\Meghashree\Api\Data\AddressInterface
      */
     public function setCity($city): AddressInterface;
 
     /**
+     * GetArea
+     *
      * @return string
      */
     public function getArea();
 
     /**
+     * SetArea
+     *
      * @param string $area
      * @return \Assignment2\Meghashree\Api\Data\AddressInterface
      */
@@ -118,11 +132,15 @@ interface AddressInterface extends ExtensibleDataInterface
     public function setUpdatedAt($updatedAt): AddressInterface;
 
     /**
+     * Extensionattributes
+     *
      * @return \Assignment2\Meghashree\Api\Data\AddressExtensionInterface
      */
     public function getExtensionAttributes();
 
     /**
+     * Set extension attributes
+     *
      * @param \Assignment2\Meghashree\Api\Data\AddressExtensionInterface $dataAttributes
      * @return $this
      */

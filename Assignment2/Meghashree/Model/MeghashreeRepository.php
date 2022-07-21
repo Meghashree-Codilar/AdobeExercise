@@ -81,7 +81,9 @@ class MeghashreeRepository implements MeghashreeRepositoryInterface
     }
 
     /**
-     * @param $id
+     * GetId
+     *
+     * @param int $id
      * @return \Assignment2\Meghashree\Api\Data\DataInterface
      */
     public function getId($id)
@@ -93,6 +95,8 @@ class MeghashreeRepository implements MeghashreeRepositoryInterface
     }
 
     /**
+     * Getlist function
+     *
      * @param SearchCriteriaInterface $searchCriteria
      * @return mixed
      */
@@ -105,5 +109,24 @@ class MeghashreeRepository implements MeghashreeRepositoryInterface
         $searchResult->setTotalCount($collection->getSize());
         $searchResult->setSearchCriteria($searchCriteria);
         return $searchResult;
+    }
+
+    /**
+     * Save function
+     *
+     * @param string $data
+     * @inerhitDoc
+     */
+    public function saveData($data)
+    {
+        $model = $this->modelFactory->create();
+        $model->setName($data['name'] ?? null);
+        $model->setEmail($data['email'] ?? null);
+        $model->setDate($data['date'] ?? null);
+        $model->setContact($data['contact'] ?? null);
+        $model->setCountry($data['country'] ?? null);
+        $model->setEmployeeSalary($data['employee_salary'] ?? null);
+        $this->resourceModel->save($model);
+        return "success";
     }
 }

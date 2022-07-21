@@ -27,7 +27,7 @@ interface DataInterface extends ExtensibleDataInterface
     public const NAME = 'name';
     public const COUNTRY='country';
     public const CONTACT='contact';
-    public const EMPLOYEESALARY='employee salary';
+    public const EMPLOYEESALARY='employee_salary';
     /**
      * Get employee id
      *
@@ -42,12 +42,17 @@ interface DataInterface extends ExtensibleDataInterface
      * @return DataInterface
      */
     public function setEntityId($entityId):DataInterface;
+
     /**
+     * Function Isactive
+     *
      * @return bool
      */
     public function getIsActive();
 
     /**
+     * Set IsActive
+     *
      * @param bool $value
      * @return DataInterface
      */
@@ -135,6 +140,7 @@ interface DataInterface extends ExtensibleDataInterface
 
     /**
      * Set country
+     *
      * @param string $country
      * @return DataInterface
      */
@@ -157,11 +163,14 @@ interface DataInterface extends ExtensibleDataInterface
 
     /**
      * Get salary
+     *
      * @return float
      */
     public function getEmployeeSalary();
 
     /**
+     * Set employeesalary
+     *
      * @param float $employeesalary
      * @return DataInterface
      */

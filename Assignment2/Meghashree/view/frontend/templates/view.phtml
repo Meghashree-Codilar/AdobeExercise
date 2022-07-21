@@ -1,51 +1,53 @@
 <?php
-/**
- * @var Assignment2\Meghashree\Block\View $block
- */
+/**  @var Assignment2\Meghashree\Block\View $block*/
+ /** @var \Magento\Framework\Escaper $escaper */
+
 $emp = $block->getAllEmployees();
 ?>
+
 <div class="employee-listing">
     <h1>Employee Details</h1>
-<!--        <input type="submit" value = "Add new employee" name = "Add new employee">-->
+    <!--        <input type="submit" value = "Add new employee" name = "Add new employee"> -->
     </form>
-    <?php if (count($emp) > 0): ?>
-    <table>
-        <thead>
-        <tr>
-            <th><?php echo __('Id') ?></th>
-            <th><?php echo __('Name') ?></th>
-            <th><?php echo __('Email') ?></th>
-            <th><?php echo __('Contact') ?></th>
-            <th><?php echo __('Country') ?></th>
-            <th><?php echo __('Date') ?></th>
-            <th><?php echo __('Employee salary') ?></th>
-            <th><?php echo __('CreatedAt') ?></th>
-            <th><?php echo __('UpdatedAt') ?></th>
-            <th><?php echo __('Action') ?></th>
+    <?php if (count($emp)>0): ?>
+        <table>
+            <thead>
+            <tr>
+                <th><?= $escaper->escapeHtml('Id') ?></th>
+                <th><?= $escaper->escapeHtml('Name') ?></th>
+                <th><?= $escaper->escapeHtml('Email') ?></th>
+                <th><?= $escaper->escapeHtml('Contact') ?></th>
+                <th><?= $escaper->escapeHtml('Country') ?></th>
+                <th><?= $escaper->escapeHtml('Date') ?></th>
+                <th><?= $escaper->escapeHtml('Employee salary') ?></th>
+                <th><?= $escaper->escapeHtml('CreatedAt') ?></th>
+                <th><?= $escaper->escapeHtml('UpdatedAt') ?></th>
+                <th><?= $escaper->escapeHtml('Action') ?></th>
 
-        </tr>
-        <?php foreach ($block->getAllEmployees() as $emp): ?>
-        <tr>
-            <td><?php echo $emp->getId() ?></td>
-            <td><?php echo $emp->getName() ?></td>
-            <td><?php echo $emp->getEmail() ?></td>
-            <td><?php echo $emp->getContact() ?></td>
-            <td><?php echo $emp->getCountry() ?></td>
-            <td><?php echo $emp->getDate() ?></td>
-            <td><?php echo $emp->getEmployeeSalary() ?></td>
-            <td><?php echo $emp->getCreatedAt() ?></td>
-            <td><?php echo $emp->getUpdatedAt() ?></td>
-            <td>
+            </tr>
+            <?php foreach ($block->getAllEmployees() as $emp): ?>
+                <tr>
+                    <td><?= $escaper->escapeHtml($emp->getId()) ?></td>
+                    <td><?= $escaper->escapeHtml($emp->getName()) ?></td>
+                    <td><?= $escaper->escapeHtml($emp->getEmail()) ?></td>
+                    <td><?= $escaper->escapeHtml($emp->getContact())?></td>
+                    <td><?= $escaper->escapeHtml($emp->getCountry()) ?></td>
+                    <td><?= $escaper->escapeHtml($emp->getDate()) ?></td>
+                    <td><?= $escaper->escapeHtml($emp->getEmployeeSalary()) ?></td>
+                    <td><?= $escaper->escapeHtml($emp->getCreatedAt()) ?></td>
+                    <td><?= $escaper->escapeHtml($emp->getUpdatedAt()) ?></td>
+                    <td>
                         <span>
-                            <button><a href="<?php echo $block->getEditUrl(). 'entity_id/' . $emp->getEntityId()?>">Edit</a></button>
+                            <button>
+                                <a href="<?=$escaper->escapeUrl($block->getEditUrl().'entity_id/'.$emp->getEntityId())?>">EDit</a>
+                             </button>
                         </span>
-            </td>
-        </tr>
-        <?php endforeach; ?>
-        </thead>
-    </table>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            </thead>
+        </table>
     <?php else: ?>
         <h3>No Employee available</h3>
     <?php endif; ?>
 </div>
-

@@ -23,8 +23,7 @@ class Add extends Action
         Context $context,
         ModelFactory $modelFactory,
         ResourceModel $resourceModel
-    )
-    {
+    ) {
         parent::__construct($context);
         $this->modelFactory = $modelFactory;
         $this->resourceModel = $resourceModel;
@@ -41,7 +40,7 @@ class Add extends Action
         $dataEmployee->setContact($data['contact'] ?? null);
         $dataEmployee->setCountry($data['country'] ?? null);
         $dataEmployee->setDate($data['date'] ?? null);
-        $dataEmployee->setEmployeeSalary($data['employee salary'] ?? null);
+        $dataEmployee->setEmployeeSalary($data['employee_salary'] ?? null);
         $this->resourceModel->save($dataEmployee);
         $this->messageManager->addSuccessMessage(__('Employee %1 saved successfully', $dataEmployee->getName()));
         return $this->resultRedirectFactory->create()->setPath('meghashree/test/view');

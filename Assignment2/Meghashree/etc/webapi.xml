@@ -11,5 +11,11 @@
             <resource ref="anonymous"/>
         </resources>
     </route>
+    <route method="POST" url="/V1/assignment2/meghashreeaddress/save/">
+        <service class="Assignment2\Meghashree\Api\MeghashreeRepositoryInterface" method="saveData"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
 
 </routes>

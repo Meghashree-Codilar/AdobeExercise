@@ -15,22 +15,17 @@ class Collection extends AbstractCollection
     {
         $this->_init(Model::class, ResourceModel::class);
     }
-
-    /**
-     * Select function
-     *
-     * @return $this
-     */
-    public function _initSelect()
-    {
-        $this->getSelect()
-            ->from(
-                ['main_table' => $this->getMainTable()]
-            )->join(
-                'meghashree_employee',
-                'main_table.entity_id = meghashree_employee.megha_id',
-                ['*']
-            );
-        return $this;
-    }
 }
+
+//    public function _initSelect()
+//    {
+//        $this->getSelect()
+//            ->from(
+//                ['main_table' => $this->getMainTable()]
+//            )->join(
+//                'meghashree_employee',
+//                'main_table.entity_id = meghashree_employee.megha_id',
+//                ['*']
+//            );
+//        return $this;
+//    }

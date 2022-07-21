@@ -15,7 +15,7 @@
         <column xsi:type="date" name="date" nullable="false" comment="Date of birth"/>
         <column xsi:type="varchar" name="country" nullable="false" length="32" default="simple" comment="Country"/>
         <column xsi:type="text" name="contact" nullable="false"  comment="Employee Contact"/>
-        <column xsi:type="decimal" name="employee salary" nullable="false" scale="2" precision="8" comment="Employee Salary"/>
+        <column xsi:type="decimal" name="employee_salary" nullable="false" scale="2" precision="8" comment="Employee Salary"/>
         <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created at "/>
         <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated at"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">
