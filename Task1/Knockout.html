@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+   <head>
+      <title>KnockoutJS</title>
+    <script src = "https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js" 
+         type = "text/javascript"></script>
+         <script src="https://code.jquery.com/jquery-3.0.0.min.js"
+         integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
+   </head>
+
+   <body>
+      <p>First Number: <input data-bind = "value: firstNumber" /></p>
+      <p>Second Number: <input data-bind = "value: secondNumber" /></p>
+      <p>Sum: <input data-bind = "value: thirdNumber"/></p>
+      <button data-bind="click:add">ADD</button>
+
+      <script>
+          jQuery(function() {
+        function AppViewModel() {
+            this.firstNumber = ko.observable();
+            this.secondNumber = ko.observable();
+            this.thirdNumber= ko.observable();
+            this.add = function () {
+               this.thirdNumber(Number(this.firstNumber()) + (Number(this.secondNumber())));
+            }
+         }
+         // Activates knockout.js
+         ko.applyBindings(new AppViewModel());
+        });
+      </script>
+
+   </body>
+</html>
